@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>통합과학1 수행평가 제출 폼</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 min-h-screen py-8 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden">
+        
+        <!-- 헤더 영역 -->
+        <div class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white p-6 sm:p-8">
+            <div class="flex items-center space-x-2 text-blue-100 text-sm font-semibold tracking-wider uppercase">
+                <span>[고등학교 통합과학1] 수행평가 제출 서식</span>
+            </div>
+            <h1 class="text-2xl sm:text-3xl font-extrabold mt-2 leading-tight">
+                세상 속 운동량과 충격량 활용 사례 탐구하기
+            </h1>
+            <div class="mt-4 flex flex-wrap items-center gap-4 text-xs sm:text-sm text-blue-100 bg-white/10 p-3 rounded-lg backdrop-blur-sm">
+                <div>
+                    <span class="font-bold text-white">📅 최종 제출 기한:</span> 
+                    <span class="text-amber-300 font-semibold">6월 7일 (일) 23시 59분까지</span> (기한 엄수)
+                </div>
+                <div class="hidden sm:block text-slate-400">|</div>
+                <div>
+                    <span class="font-bold text-white">✍️ 평가 방식:</span> 보고서 및 관련 시각 자료 검토
+                </div>
+            </div>
+        </div>
+
+        <!-- 본문 폼 영역 -->
+        <form id="evaluationForm" class="p-6 sm:p-8 space-y-6" onsubmit="event.preventDefault(); handleSubmit();">
+            
+            <!-- 학생 정보 입력 테이블형 -->
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <h2 class="text-sm font-bold text-slate-700 mb-3">👨‍🎓 제출자 정보</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div>
+                        <label for="studentGrade" class="block text-xs font-semibold text-slate-500 mb-1">학년/반</label>
+                        <input type="text" id="studentGrade" required placeholder="예: 1학년 3반" 
+                               class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm">
+                    </div>
+                    <div>
+                        <label for="studentNumber" class="block text-xs font-semibold text-slate-500 mb-1">학번</label>
+                        <input type="text" id="studentNumber" required placeholder="예: 15번" 
+                               class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm">
+                    </div>
+                    <div>
+                        <label for="studentName" class="block text-xs font-semibold text-slate-500 mb-1">이름</label>
+                        <input type="text" id="studentName" required placeholder="예: 홍길동" 
+                               class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 수행평가 항목 테이블 및 입력창 -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden">
+                <table class="w-full border-collapse text-left">
+                    <thead>
+                        <tr class="bg-slate-100 border-b border-slate-200">
+                            <th class="py-3 px-4 text-xs font-bold text-slate-600 uppercase tracking-wider w-12 text-center">번호</th>
+                            <th class="py-3 px-4 text-xs font-bold text-slate-600 uppercase tracking-wider">수행평가 작성 항목 및 가이드</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200">
+                        
+                        <!-- 질문 1 -->
+                        <tr class="hover:bg-slate-50/50 transition-colors">
+                            <td class="py-4 px-4 font-semibold text-slate-400 text-center align-top pt-5">1</td>
+                            <td class="py-4 px-4">
+                                <label for="q1" class="block text-sm font-bold text-slate-800 mb-1">
+                                    생활 속, 혹은 다른 학문 속 운동량과 충격량의 개념 활용 사례 <span class="text-red-500">*</span>
+                                </label>
+                                <span class="block text-xs text-slate-400 mb-3">
+                                    💡 운동 장비(에어백, 헬멧), 자연 현상, 안전 장치, 예술, 군사 기술 등에서 한 가지 사례를 골라 명칭을 적어주세요.
+                                </span>
+                                <input type="text" id="q1" required placeholder="예: 자동차 에어백과 범퍼의 원리" 
+                                       class="w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm">
+                            </td>
+                        </tr>
+
+                        <!-- 질문 2 -->
+                        <tr class="hover:bg-slate-50/50 transition-colors">
+                            <td class="py-4 px-4 font-semibold text-slate-400 text-center align-top pt-5">2</td>
+                            <td class="py-4 px-4">
+                                <label for="q2" class="block text-sm font-bold text-slate-800 mb-1">
+                                    운동량과 충격량의 개념이 사례와 연관되는 점 <span class="text-red-500">*</span>
+                                </label>
+                                <span class="block text-xs text-slate-400 mb-3">
+                                    💡 선택한 사례에서 운동량의 변화가 어떻게 일어나는지, 충돌 시간($\Delta t$)을 늘려 충격력($F$)을 줄이는 원리인지 등 과학적 개념과 공식을 활용해 논리적으로 설명하세요.
+                                </span>
+                                <textarea id="q2" required rows="4" placeholder="예: 에어백이 작동하면 충돌 시 운전자가 멈추는 데 걸리는 시간(t)이 길어집니다. 충량량(I = F·t)은 일정한데 시간이 증가하므로 운전자가 받는 평균 충격력(F)이 감소하여 부상을 예방하게 됩니다..." 
+                                          class="w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm leading-relaxed"></textarea>
+                            </td>
+                        </tr>
+
+                        <!-- 질문 3 -->
+                        <tr class="hover:bg-slate-50/50 transition-colors">
+                            <td class="py-4 px-4 font-semibold text-slate-400 text-center align-top pt-5">3</td>
+                            <td class="py-4 px-4">
+                                <label for="q3" class="block text-sm font-bold text-slate-800 mb-1">
+                                    개념의 유용성 및 응용·폭넓은 활용 방안 설명 <span class="text-red-500">*</span>
+                                </label>
+                                <span class="block text-xs text-slate-400 mb-3">
+                                    💡 이 개념이 왜 실생활에서 유용하게 사용된다고 생각하는지 적거나, 본인이 구상한 새로운 안전 장비 디자인이나 타 학문(체육, 공학 등)과의 융합적인 발전 방안을 자유롭게 제시해 주세요.
+                                </span>
+                                <textarea id="q3" required rows="5" placeholder="예: 이 개념은 인명 피해를 막는 모든 안전 공학의 뼈대가 되기 때문에 유용합니다. 저는 이를 응용하여 스마트폰 낙하 시 모서리에서 미세 에어백이 순간적으로 돌출되어 낙하 충돌 시간을 늘려주는 스마트 안전 케이스를 구상해 보았습니다..." 
+                                          class="w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm leading-relaxed"></textarea>
+                            </td>
+                        </tr>
+
+                        <!-- 질문 4 -->
+                        <tr class="hover:bg-slate-50/50 transition-colors">
+                            <td class="py-4 px-4 font-semibold text-slate-400 text-center align-top pt-5">4</td>
+                            <td class="py-4 px-4">
+                                <label for="q4" class="block text-sm font-bold text-slate-800 mb-1">
+                                    관련 시각 자료 첨부 <span class="text-red-500">*</span>
+                                </label>
+                                <span class="block text-xs text-slate-400 mb-3">
+                                    💡 개념을 직관적으로 설명할 수 있는 이미지 파일을 업로드하거나, 관련 유튜브 설명 영상, 모의실험 시뮬레이션의 링크를 입력해 주세요. (이미지 파일 첨부 또는 링크 입력 중 최소 한 가지 필수)
+                                </span>
+                                
+                                <!-- 검증 경고 메시지 영역 (미입력 시 노출) -->
+                                <div id="q4_error" class="hidden mb-3 p-3 bg-rose-50 border border-rose-200 text-rose-600 rounded-lg text-xs font-semibold flex items-center space-x-2">
+                                    <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                                    </svg>
+                                    <span>시각 자료 증명을 위해 '이미지 파일 불러오기'를 수행하거나, '참고 사이트 및 영상 링크'를 입력해 주셔야 합니다.</span>
+                                </div>
+
+                                <div class="space-y-4">
+                                    <!-- 이미지 파일 업로드 영역 -->
+                                    <div>
+                                        <label class="block text-xs font-semibold text-slate-500 mb-2">이미지 파일 불러오기</label>
+                                        <div class="flex items-center justify-center w-full">
+                                            <label for="q4_image" class="flex flex-col items-center justify-center w-full h-32 border-2 border-slate-300 border-dashed rounded-lg cursor-pointer bg-slate-50 hover:bg-slate-100 transition-colors duration-200">
+                                                <div class="flex flex-col items-center justify-center pt-5 pb-6" id="upload_prompt">
+                                                    <svg class="w-8 h-8 mb-3 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                                                    </svg>
+                                                    <p class="mb-1 text-sm text-slate-500"><span class="font-semibold">클릭하여 이미지 파일 선택</span> 혹은 드래그 앤 드롭</p>
+                                                    <p class="text-xs text-slate-400">PNG, JPG, JPEG, GIF 이미지 포맷 지원</p>
+                                                </div>
+                                                <div id="image_preview_container" class="hidden w-full h-full p-2 flex items-center justify-center relative">
+                                                    <img id="image_preview" class="max-h-28 object-contain rounded" src="" alt="업로드 이미지 미리보기">
+                                                    <button type="button" onclick="removeImage(event)" class="absolute top-2 right-2 bg-rose-500 hover:bg-rose-600 text-white rounded-full p-1.5 transition shadow-md">
+                                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                                <input id="q4_image" type="file" accept="image/*" class="hidden" onchange="previewImage(this)">
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- 구분선 -->
+                                    <div class="relative flex py-1 items-center">
+                                        <div class="flex-grow border-t border-slate-200"></div>
+                                        <span class="flex-shrink mx-4 text-slate-400 text-xs">또는 웹 링크 입력 (선택사항)</span>
+                                        <div class="flex-grow border-t border-slate-200"></div>
+                                    </div>
+
+                                    <!-- 참고 사이트 및 링크 영역 -->
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                        <div>
+                                            <label class="block text-xs font-semibold text-slate-500 mb-1">참고 사이트 및 영상 링크 (선택)</label>
+                                            <input type="url" id="q4_link" placeholder="https://example.com/image-or-video" 
+                                                   class="w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm">
+                                        </div>
+                                        <div>
+                                            <label class="block text-xs font-semibold text-slate-500 mb-1">시각 자료 간단 설명 (선택)</label>
+                                            <input type="text" id="q4_desc" placeholder="예: 충돌 테스트 시 운전자가 받는 충격력 그래프 분석" 
+                                                   class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm">
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- 질문 5 -->
+                        <tr class="hover:bg-slate-50/50 transition-colors">
+                            <td class="py-4 px-4 font-semibold text-slate-400 text-center align-top pt-5">5</td>
+                            <td class="py-4 px-4">
+                                <label for="q5" class="block text-sm font-bold text-slate-800 mb-1">
+                                    수행평가 작성에 사용한 자료의 출처 <span class="text-red-500">*</span>
+                                </label>
+                                <span class="block text-xs text-slate-400 mb-3">
+                                    💡 참고한 교과서 페이지, 백과사전, 과학 학술 기사명, 논문, 도서명 등을 자세히 명시하여 지식 재산권을 보호해 주세요. (나무위키 등 신뢰도가 낮은 출처는 지양할 것)
+                                </span>
+                                <textarea id="q5" required rows="2" placeholder="예: 1. 고등학교 통합과학 교과서 (00출판사) 112-115p&#10;2. 한국물리학회 물리백과 '충격량' 항목&#10;3. YouTube 채널 '과학탐구소' - 충격력 실험 영상" 
+                                          class="w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm leading-relaxed"></textarea>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 안내 및 제출 버튼 -->
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-slate-100">
+                <div class="flex items-start space-x-2 text-slate-500 text-xs">
+                    <svg class="h-5 w-5 text-amber-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                    </svg>
+                    <span>
+                        제출 전 반드시 오탈자와 맞춤법을 확인하세요. 제출 버튼 클릭 시, 작성한 내용이 이메일 수신 창으로 즉시 전송 대기 상태가 됩니다.
+                    </span>
+                </div>
+                <div class="flex space-x-3 w-full sm:w-auto">
+                    <button type="button" onclick="handlePrint()" class="w-full sm:w-auto px-5 py-3 border border-slate-300 text-slate-700 font-semibold rounded-lg hover:bg-slate-100 transition text-sm">
+                        인쇄 / PDF 저장
+                    </button>
+                    <button type="submit" class="w-full sm:w-auto px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition shadow-md shadow-blue-200 text-sm">
+                        과제 제출하기
+                    </button>
+                </div>
+            </div>
+
+        </form>
+
+        <!-- 임시 제출 완료 모달 -->
+        <div id="successModal" class="hidden fixed inset-0 bg-slate-900/60 flex items-center justify-center p-4 z-50">
+            <div class="bg-white rounded-xl shadow-2xl max-w-md w-full p-6 text-center transform transition-all duration-300">
+                <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100 mb-4">
+                    <svg class="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 mb-1">제출 데이터가 생성되었습니다!</h3>
+                <p class="text-sm text-slate-500 mb-4" id="modalStudentInfo"></p>
+                
+                <p class="text-xs text-rose-600 font-semibold bg-rose-50 p-2.5 rounded-lg mb-4 text-left border border-rose-100 leading-relaxed">
+                    📢 이메일 송신 클라이언트(기본 메일 앱)가 실행됩니다. 메일 창에서 '보내기'를 누르시면 최종 제출 메일이 <b>smyg031710@naver.com</b>으로 발송됩니다.
+                </p>
+
+                <div class="bg-slate-50 p-3 rounded-lg text-left text-xs text-slate-600 mb-6 space-y-1">
+                    <div class="font-bold border-b border-slate-200 pb-1 mb-1 text-slate-700">전송 예정 내역 요약</div>
+                    <div><strong>사례:</strong> <span id="modalCaseName"></span></div>
+                    <div><strong>제출 시간:</strong> <span id="modalSubmitTime"></span></div>
+                </div>
+
+                <button onclick="closeModalAndSend()" class="w-full py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg text-sm transition">
+                    메일 전송하기
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // 업로드 이미지 데이터를 텍스트 전송용 상태 변수에 저장
+        let uploadedFileName = "";
+
+        // 이미지 불러오기 및 미리보기 렌더링 함수
+        function previewImage(input) {
+            const previewContainer = document.getElementById('image_preview_container');
+            const previewImage = document.getElementById('image_preview');
+            const uploadPrompt = document.getElementById('upload_prompt');
+
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                uploadedFileName = input.files[0].name; // 파일명 저장
+                reader.onload = function(e) {
+                    previewImage.src = e.target.result;
+                    previewContainer.classList.remove('hidden');
+                    uploadPrompt.classList.add('hidden');
+                    document.getElementById('q4_error').classList.add('hidden'); // 경고 해제
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        // 불러온 이미지 삭제 및 초기화 함수
+        function removeImage(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            const fileInput = document.getElementById('q4_image');
+            const previewContainer = document.getElementById('image_preview_container');
+            const previewImage = document.getElementById('image_preview');
+            const uploadPrompt = document.getElementById('upload_prompt');
+
+            fileInput.value = '';
+            uploadedFileName = '';
+            previewImage.src = '';
+            previewContainer.classList.add('hidden');
+            uploadPrompt.classList.remove('hidden');
+        }
+
+        // 과제 제출 시 모달 처리
+        function handleSubmit() {
+            // 4번 문항 검증: 이미지 또는 참고 링크 중 최소 하나가 작성되었는지 체크
+            const imageInput = document.getElementById('q4_image');
+            const linkInput = document.getElementById('q4_link').value.trim();
+            const errorAlert = document.getElementById('q4_error');
+
+            if (!imageInput.files[0] && !linkInput) {
+                errorAlert.classList.remove('hidden');
+                errorAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return; // 제출 중단
+            } else {
+                errorAlert.classList.add('hidden');
+            }
+
+            const grade = document.getElementById('studentGrade').value;
+            const number = document.getElementById('studentNumber').value;
+            const name = document.getElementById('studentName').value;
+            const caseName = document.getElementById('q1').value;
+
+            // 모달 데이터 세팅
+            document.getElementById('modalStudentInfo').innerText = `${grade} ${number} ${name} 학생`;
+            document.getElementById('modalCaseName').innerText = caseName;
+            
+            const now = new Date();
+            const formattedTime = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
+            document.getElementById('modalSubmitTime').innerText = formattedTime;
+
+            // 모달 열기
+            document.getElementById('successModal').classList.remove('hidden');
+        }
+
+        // 모달 닫기 및 실제 mailto 연동 처리
+        function closeModalAndSend() {
+            document.getElementById('successModal').classList.add('hidden');
+
+            const grade = document.getElementById('studentGrade').value;
+            const number = document.getElementById('studentNumber').value;
+            const name = document.getElementById('studentName').value;
+            const q1 = document.getElementById('q1').value;
+            const q2 = document.getElementById('q2').value;
+            const q3 = document.getElementById('q3').value;
+            const q4_link = document.getElementById('q4_link').value.trim() || '입력 없음';
+            const q4_desc = document.getElementById('q4_desc').value.trim() || '설명 없음';
+            const q5 = document.getElementById('q5').value;
+
+            // 이메일 제목 구성
+            const emailTo = "smyg031710@naver.com";
+            const subject = `[통합과학1 수행평가 제출] ${grade} ${number} ${name}`;
+            
+            // 이메일 본문 내용 구성 (줄바꿈 %0D%0A 적용)
+            let body = `통합과학1 수행평가 제출합니다.\n\n`;
+            body += `------------------ [제출자 정보] ------------------\n`;
+            body += `• 학년/반: ${grade}\n`;
+            body += `• 학번: ${number}\n`;
+            body += `• 이름: ${name}\n\n`;
+            
+            body += `------------------ [수행평가 내용] ------------------\n`;
+            body += `[1] 개념 활용 사례:\n   ${q1}\n\n`;
+            body += `[2] 운동량과 충격량 개념과의 연관성:\n   ${q2}\n\n`;
+            body += `[3] 유용성 및 발전/응용 방안:\n   ${q3}\n\n`;
+            body += `[4] 시각 자료 첨부 정보:\n`;
+            body += `   - 첨부 이미지 파일명: ${uploadedFileName ? uploadedFileName : '첨부 이미지 없음'}\n`;
+            body += `   - 참고 사이트 및 영상 링크: ${q4_link}\n`;
+            body += `   - 시각 자료 설명: ${q4_desc}\n\n`;
+            body += `[5] 자료 출처:\n   ${q5}\n\n`;
+            body += `------------------------------------------------------\n`;
+            body += `제출 일시: ${document.getElementById('modalSubmitTime').innerText}\n`;
+
+            // mailto URI 생성 및 브라우저 실행
+            const mailtoUrl = `mailto:${emailTo}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            window.location.href = mailtoUrl;
+
+            // 폼 초기화 및 이미지 업로드 상태 초기화
+            document.getElementById('evaluationForm').reset();
+            const fakeEvent = { preventDefault: () => {}, stopPropagation: () => {} };
+            removeImage(fakeEvent);
+        }
+
+        // 인쇄 및 PDF 다운로드 연동
+        function handlePrint() {
+            window.print();
+        }
+    </script>
+</body>
+</html>
